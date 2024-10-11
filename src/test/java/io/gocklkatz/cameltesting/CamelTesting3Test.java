@@ -34,6 +34,7 @@ public class CamelTesting3Test extends CamelTestSupport {
 
         mockOther.expectedMessageCount(1);
         mockOther.message(0).body().isEqualTo("Spring Rocks");
+        mockOther.message(0).header("verified").isNull();
         directStart.sendBody("Spring Rocks");
         mockOther.assertIsSatisfied();
     }
